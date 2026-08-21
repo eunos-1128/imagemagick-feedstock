@@ -15,6 +15,9 @@ source:
     - remove-warning-compat-block.patch          # [win]
     - skip-additional-fd-tests-on-windows.patch  # [win]
     - skip-validate-formats-map-memory-on-windows.patch  # [win]
+    # validate-convert is flaky on Windows with Ghostscript enabled and can exit
+    # before emitting a TAP result.
+    - skip-validate-convert-on-windows-agpl.patch  # [win and license_family == "agpl"]
 
 build:
   number: {{ build }}
